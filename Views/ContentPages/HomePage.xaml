@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Zenicaorb.Views.ContentPages.HomePage"
+             Title="HomePage"
+             Loaded="ContentPage_Loaded"
+             Shell.FlyoutBehavior="Flyout"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="32"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <HorizontalStackLayout Grid.Row="0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center">
+                    <Label Text="Zenica"
+                           TextColor="#0167E0"
+                           FontSize="32"
+                           FontFamily="Inter-Black"></Label>
+                    <Label Text="Orb"
+                           TextColor="#2B8CFF"
+                           FontSize="32"
+                           FontFamily="Inter-Black"></Label>
+                </HorizontalStackLayout>
+                <ImageButton Source="flyout_icon.png"
+                             Grid.Column="2"
+                             x:Name="flyoutButton"
+                             Clicked="flyoutButton_Clicked"></ImageButton>
+            </Grid>
+            <CollectionView x:Name="roomsCollectionView"
+                            Grid.Row="1">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="4"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border HeightRequest="128"
+                                WidthRequest="354"
+                                StrokeShape="RoundRectangle 6">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="114"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding CoverImage}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="64"
+                                       WidthRequest="64"></Image>
+                                <VerticalStackLayout Grid.Column="1"
+                                                     Margin="8"
+                                                     Spacing="2">
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="{Binding Name}"
+                                               FontSize="19"
+                                               FontFamily="Inter-Bold"></Label>
+                                        <Label Text="{Binding Class}"
+                                               FontSize="19"
+                                               FontFamily="Inter-Bold"></Label>
+                                    </HorizontalStackLayout>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="Площадь:"></Label>
+                                            <Label Text="{Binding AreaMeter}"></Label>
+                                            <Label Text="м²"></Label>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout Grid.Column="1"
+                                                   Spacing="4">
+                                            <Label Text="Мест:"></Label>
+                                            <Label Text="{Binding PlacesCount}"></Label>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                    <Label Text="Улица Новая Дорога, 9к2"></Label>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Text="Подробнее"
+                                                TextColor="Black"
+                                                BackgroundColor="Transparent"
+                                                HeightRequest="32"
+                                                Padding="0,0,18,0"
+                                                x:Name="additionInfoButton"
+                                                Clicked="additionInfoButton_Clicked"
+                                                AutomationId="{Binding RoomId}"></Button>
+                                        <Button Text="Забронировать"
+                                                FontFamily="Inter-SemiBold"
+                                                Grid.Column="1"
+                                                BackgroundColor="#2B8CFF"
+                                                Padding="0,0,0,0"
+                                                HeightRequest="28"
+                                                WidthRequest="114"
+                                                HorizontalOptions="Start"
+                                                CornerRadius="6"
+                                                x:Name="reserveButton"
+                                                Clicked="reserveButton_Clicked"
+                                                AutomationId="{Binding RoomId}"></Button>
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

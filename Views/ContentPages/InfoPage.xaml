@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cmt:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:cmt="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+           x:Class="Frontend_Zenicaorb.Views.ContentPages.InfoPage"
+           Color="Transparent">
+    <Border BackgroundColor="White"
+            HeightRequest="512"
+            WidthRequest="368"
+            StrokeShape="RoundRectangle 16">
+        <Grid Margin="16">
+            <VerticalStackLayout HorizontalOptions="Center"
+                                 Spacing="34">
+                <HorizontalStackLayout Spacing="6"
+                                   HorizontalOptions="Center">
+                    <Label x:Name="nameLabel"
+                       FontSize="24"
+                       FontFamily="Inter-Bold"></Label>
+                    <Label x:Name="classLabel" 
+                       FontSize="24"
+                       FontFamily="Inter-Bold"></Label>
+                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="6">
+                    <CarouselView x:Name="imagesCarouselView"
+                              IndicatorView="imagesCountView"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"></Image>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="imagesCountView"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               SelectedIndicatorColor="#2B8CFF"
+                               IndicatorColor="#E7E7E7">
+                        <IndicatorView.IndicatorTemplate>
+                            <DataTemplate>
+                                <Border Padding="8"
+                                    WidthRequest="20"
+                                    HeightRequest="10"
+                                    StrokeShape="RoundRectangle 2,2,2,2"></Border>
+                            </DataTemplate>
+                        </IndicatorView.IndicatorTemplate>
+                    </IndicatorView>
+                </VerticalStackLayout>
+                <Button Text="Закрыть"
+                    FontFamily="Inter-SemiBold"
+                    FontSize="16"
+                    Margin="0,48,0,0"
+                    Grid.Column="1"
+                    BackgroundColor="#2B8CFF"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Padding="32,-8"
+                    HeightRequest="34"
+                    CornerRadius="6"
+                    x:Name="closeButton"
+                    Clicked="closeButton_Clicked"></Button>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+</cmt:Popup>

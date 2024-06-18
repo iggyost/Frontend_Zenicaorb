@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cmt="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             x:Class="Frontend_Zenicaorb.Views.ContentPages.ReserveRoomPage">
+    <Grid>
+
+        <Border BackgroundColor="White"
+            HeightRequest="512"
+            WidthRequest="368"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 16">
+            <Grid Margin="16">
+                <VerticalStackLayout HorizontalOptions="Center"
+                                 Spacing="4">
+                    <HorizontalStackLayout Spacing="6"
+                                       HorizontalOptions="Center">
+                        <Label x:Name="nameLabel"
+                           FontSize="24"
+                           FontFamily="Inter-Bold"></Label>
+                        <Label x:Name="classLabel" 
+                           FontSize="24"
+                           FontFamily="Inter-Bold"></Label>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="4"
+                                       Margin="0,12,0,0">
+                        <Label Text="Вес животного"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                        <Border Stroke="#DDDDDD"
+                            BackgroundColor="#E7E7E7"
+                            StrokeShape="RoundRectangle 6,6,6,6"
+                            Padding="-8"
+                            WidthRequest="80">
+                            <Entry Margin="16,0"
+                               MaxLength="3"
+                               Keyboard="Numeric"
+                               FontSize="16"
+                               FontFamily="Inter-Medium"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               x:Name="weightLabel"></Entry>
+                        </Border>
+                        <Label Text="кг."
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="4">
+                        <Label Text="Рост животного"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                        <Border Stroke="#DDDDDD"
+                            BackgroundColor="#E7E7E7"
+                            StrokeShape="RoundRectangle 6,6,6,6"
+                            Padding="-8"
+                            WidthRequest="80">
+                            <Entry Margin="16,0"
+                               MaxLength="3"
+                               Keyboard="Numeric"
+                               FontSize="16"
+                               FontFamily="Inter-Medium"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               x:Name="heightLabel"></Entry>
+                        </Border>
+                        <Label Text="см."
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                    </HorizontalStackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="168"></ColumnDefinition>
+                            <ColumnDefinition Width="32"></ColumnDefinition>
+                            <ColumnDefinition Width="64"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Видеонаблюдение"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                        <CheckBox x:Name="surveillanceRadiobutton"
+                                  Grid.Column="1"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"
+                                  Color="#2B8CFF"
+                                  CheckedChanged="surveillanceRadiobutton_CheckedChanged"></CheckBox>
+                        <Label Text="+250 ₽"
+                           TextColor="#353535"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="168"></ColumnDefinition>
+                            <ColumnDefinition Width="32"></ColumnDefinition>
+                            <ColumnDefinition Width="64"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Фотоотчеты"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                        <CheckBox x:Name="photoReportsRadiobutton"
+                                  Grid.Column="1"
+                                  HorizontalOptions="Center"
+                                  Color="#2B8CFF"
+                                  CheckedChanged="photoReportsRadiobutton_CheckedChanged"></CheckBox>
+                        <Label Text="+100 ₽"
+                           TextColor="#353535"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="8"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Дата заселения"
+                               FontSize="16"
+                               FontFamily="Inter-Medium"></Label>
+                            <Border Stroke="#DDDDDD"
+                                BackgroundColor="#E7E7E7"
+                                StrokeShape="RoundRectangle 6,6,6,6"
+                                HorizontalOptions="Start"
+                                WidthRequest="128"
+                                    HeightRequest="40">
+                                <dxe:DateEdit BackgroundColor="Transparent"
+                                              IsDateIconVisible="False"
+                                              BorderColor="Transparent"
+                                              WidthRequest="112"
+                                              DateChanged="startDatePicker_DateChanged"
+                                              DisplayFormat="dd/MM/yyy"
+                                              HorizontalOptions="Start"
+                                              TextColor="Black"
+                                              x:Name="startDatePicker"
+                                              Margin="8,0"></dxe:DateEdit>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="4"
+                                         Grid.Column="2">
+                            <Label Text="Дата отъезда"
+                               FontSize="16"
+                               FontFamily="Inter-Medium"></Label>
+                            <Border Stroke="#DDDDDD"
+                                BackgroundColor="#E7E7E7"
+                                StrokeShape="RoundRectangle 6,6,6,6"
+                                HorizontalOptions="Start"
+                                WidthRequest="128"
+                                    HeightRequest="40">
+                                <dxe:DateEdit BackgroundColor="Transparent"
+                                              IsDateIconVisible="False"
+                                              WidthRequest="112"
+                                              BorderColor="Transparent"
+                                              DateChanged="endDatePicker_DateChanged"
+                                              DisplayFormat="dd/MM/yyy"
+                                              HorizontalOptions="Start"
+                                              TextColor="Black"
+                                              x:Name="endDatePicker"
+                                              Margin="8,0"></dxe:DateEdit>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Пожелания или особенности"
+                           FontSize="16"
+                           FontFamily="Inter-Medium"></Label>
+                        <Border Stroke="#DDDDDD"
+                            BackgroundColor="#E7E7E7"
+                            StrokeShape="RoundRectangle 6,6,6,6"
+                            Padding="-8"
+                            WidthRequest="326"
+                            HeightRequest="54">
+                            <Editor x:Name="wishesEditor"
+                                Margin="12,0"
+                                FontSize="16"
+                                FontFamily="Inter-Medium"></Editor>
+                        </Border>
+                    </VerticalStackLayout>
+                    <HorizontalStackLayout Spacing="4">
+                        <Label Text="Итоговая цена:"
+                           FontSize="16"
+                           FontFamily="Inter-SemiBold"></Label>
+                        <Label x:Name="totalCostLabel"
+                           FontSize="16"
+                           FontFamily="Inter-SemiBold"></Label>
+                    </HorizontalStackLayout>
+                    <Button Text="Забронировать"
+                        FontFamily="Inter-SemiBold"
+                        FontSize="16"
+                        Margin="0,32,0,0"
+                        Grid.Column="1"
+                        BackgroundColor="#2B8CFF"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Padding="32,-8"
+                        HeightRequest="34"
+                        CornerRadius="6"
+                        x:Name="reserveButton"
+                        Clicked="reserveButton_Clicked"></Button>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Zenicaorb.Views.ContentPages.PhoneEnterPage"
+             Title="PhoneEnterPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="128"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="512"></RowDefinition>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout Grid.Row="0"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                <Label Text="Zenica"
+                       TextColor="#0167E0"
+                       FontSize="48"
+                       FontFamily="Inter-Black"></Label>
+                <Label Text="Orb"
+                       TextColor="#2B8CFF"
+                       FontSize="48"
+                       FontFamily="Inter-Black"></Label>
+            </HorizontalStackLayout>
+            <Border StrokeShape="RoundRectangle 40,40,0,0"
+                    Grid.Row="2"
+                    StrokeThickness="0">
+                <Grid Margin="16,24">
+                    <ActivityIndicator x:Name="loadingIndicator"
+                                       ZIndex="1"
+                                       HeightRequest="64"
+                                       WidthRequest="64"
+                                       VerticalOptions="Start"
+                                       Margin="64"
+                                       Color="#0167E0"></ActivityIndicator>
+                    <VerticalStackLayout Spacing="24">
+                        <Label Text="Введите номер телефона"
+                               FontSize="22"
+                               FontFamily="Inter-Bold"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               WidthRequest="256"></Label>
+                        <Border Stroke="#DDDDDD"
+                                BackgroundColor="#E7E7E7"
+                                StrokeShape="RoundRectangle 6,6,6,6"
+                                Padding="-8"
+                                Margin="48,0"
+                                x:Name="phoneBorder">
+                            <Entry Margin="16,0"
+                                   MaxLength="11"
+                                   FontSize="20"
+                                   FontFamily="Inter-Medium"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   Placeholder="+7 999 999 99 99"
+                                   x:Name="phoneEnter"></Entry>
+                        </Border>
+                        <Button Text="Продолжить"
+                                FontSize="18"
+                                FontFamily="Inter-SemiBold"
+                                BackgroundColor="#2B8CFF"
+                                HorizontalOptions="Center"
+                                Padding="86,0"
+                                Margin="0,32,0,0"
+                                x:Name="continueButton"
+                                Clicked="continueButton_Clicked"></Button>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

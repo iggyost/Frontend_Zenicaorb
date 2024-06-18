@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Frontend_Zenicaorb.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Frontend_Zenicaorb.Views.ContentPages"
+    FlyoutBehavior="Flyout"
+    FlyoutIsPresented="False">
+    <Shell.FlyoutHeader>
+        <Grid Margin="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="48"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label FontSize="24"
+                   FontFamily="Inter-SemiBold"
+                   VerticalOptions="Center"
+                   x:Name="userPhone"
+                   Loaded="userPhone_Loaded"></Label>
+            <ImageButton Source="flyout_active_icon.png"
+                         Grid.Column="1"
+                         x:Name="closeFlyoutButton"
+                         Aspect="AspectFill"
+                         HeightRequest="48"
+                         WidthRequest="48"
+                         VerticalOptions="Center"
+                         Clicked="closeFlyoutButton_Clicked"></ImageButton>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutContent>
+        <VerticalStackLayout Margin="16"
+                             Spacing="4">
+            <!--<Grid>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </Grid.GestureRecognizers>
+                <HorizontalStackLayout Spacing="12">
+                    <Label Text="Профиль"
+                           VerticalOptions="Center"
+                           FontSize="21"
+                           FontFamily="Inter-Medium"></Label>
+                    <Image Source="user_icon.png"
+                           Aspect="AspectFill"
+                           HeightRequest="24"
+                           WidthRequest="24"
+                           VerticalOptions="Center"></Image>
+                </HorizontalStackLayout>
+            </Grid>-->
+        </VerticalStackLayout>
+    </Shell.FlyoutContent>
+    <Shell.FlyoutFooter>
+        <Button BackgroundColor="Transparent"
+                FontSize="21"
+                Margin="0,16"
+                FontFamily="Inter-Medium"
+                Text="Выйти из аккаунта"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="55"
+                x:Name="exitButton"
+                Clicked="exitButton_Clicked"></Button>
+    </Shell.FlyoutFooter>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="Профиль"
+             Icon="user_icon.png">
+            <ShellContent></ShellContent>
+        </Tab>
+
+    </FlyoutItem>
+
+    <Shell.Items>
+        <TabBar>
+            <Tab Icon="main_icon.png">
+                <ShellContent ContentTemplate="{DataTemplate local:HomePage}"
+                              Route="Home">
+                </ShellContent>
+            </Tab>
+            <Tab Icon="search_icon.png">
+                <ShellContent ContentTemplate="{DataTemplate local:SearchPage}"
+                              Route="Search">
+                </ShellContent>
+            </Tab>
+            <Tab Icon="history_icon.png">
+                <ShellContent ContentTemplate="{DataTemplate local:HistoryPage}"
+                              Route="History"></ShellContent>
+            </Tab>
+        </TabBar>
+    </Shell.Items>
+
+
+
+</Shell>

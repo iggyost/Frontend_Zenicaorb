@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frontend_Zenicaorb.Views.ContentPages.HistoryPage"
+             Title="HistoryPage"
+             Shell.NavBarIsVisible="False"
+             Loaded="ContentPage_Loaded">
+    <Grid>
+        <Image Source="background_image.png"
+               Aspect="AspectFill"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="32"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="48"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <HorizontalStackLayout Grid.Row="0"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center">
+                    <Label Text="Zenica"
+                           TextColor="#0167E0"
+                           FontSize="32"
+                           FontFamily="Inter-Black"></Label>
+                    <Label Text="Orb"
+                           TextColor="#2B8CFF"
+                           FontSize="32"
+                           FontFamily="Inter-Black"></Label>
+                </HorizontalStackLayout>
+                <ImageButton Source="flyout_icon.png"
+                             Grid.Column="2"
+                             x:Name="flyoutButton"
+                             Clicked="flyoutButton_Clicked"></ImageButton>
+            </Grid>
+            <CollectionView Grid.Row="1"
+                            x:Name="reservCollectionView">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="4"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border WidthRequest="354"
+                    HeightRequest="138"
+                    StrokeShape="RoundRectangle 6">
+                            <Grid Margin="12,8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="0.3*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <VerticalStackLayout Spacing="4">
+                                        <Label Text="{Binding Name}"
+                                   FontSize="24"
+                                   FontFamily="Inter-SemiBold"></Label>
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="{Binding StartDate, StringFormat='{}{0:dd.MM.yyy}'}"
+                                                   FontSize="15"></Label>
+                                            <Label Text="-"></Label>
+                                            <Label Text="{Binding EndDate, StringFormat='{}{0:dd.MM.yyy}'}"
+                                                   FontSize="15"></Label>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                    <Label Grid.Row="1"
+                               FontSize="14"
+                               FontFamily="Inter-SemiBold"></Label>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label HorizontalOptions="Center"
+                                           FontSize="16"
+                                           FontFamily="Inter-Medium"
+                                           TextColor="#777777"
+                               VerticalOptions="Center"
+                               x:Name="statusLabel"
+                               AutomationId="{Binding StatusId}"
+                               Loaded="statusLabel_Loaded"></Label>
+                                    <Label Text="{Binding TotalCost, StringFormat='{}{0} ₽'}"
+                                           Margin="8,0,0,0"
+                               Grid.Row="2"
+                               FontSize="18"
+                               FontFamily="Inter-SemiBold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"></Label>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>
